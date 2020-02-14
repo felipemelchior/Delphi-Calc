@@ -50,30 +50,33 @@ implementation
 
 procedure TForm1.btn_equalClick(Sender: TObject);
   var number1, number2: double;
+  var x: char;
 
 begin
   number1 := strToFloat(txt_number1.Text);
   number2 := strToFloat(txt_number2.Text);
 
-  if(lb_operator.Text = '+') then
-  begin
-    showMessage(floatToStr(number1 + number2));
-  end;
+  x := lb_operator.Text[1];
+  case x of
+    '+': begin
+      showMessage(floatToStr(number1 + number2));
+    end;
 
-  if(lb_operator.Text = '-') then
-  begin
-    showMessage(floatToStr(number1 - number2));
-  end;
+    '-': begin
+      showMessage(floatToStr(number1 - number2));
+    end;
 
-  if(lb_operator.Text = '*') then
-  begin
-    showMessage(floatToStr(number1 * number2));
-  end;
+    '*': begin
+      showMessage(floatToStr(number1 * number2));
+    end;
 
+    '/': begin
+      showMessage(floatToStr(number1 / number2));
+    end;
 
-  if(lb_operator.Text = '/') then
-  begin
-    showMessage(floatToStr(number1 / number2));
+    else
+      showMessage('Selecione uma operação');
+
   end;
 end;
 
