@@ -1,0 +1,286 @@
+unit U_Calculadora;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit;
+
+type
+  TForm1 = class(TForm)
+    btn_0: TButton;
+    btn_1: TButton;
+    btn_2: TButton;
+    btn_3: TButton;
+    btn_4: TButton;
+    btn_5: TButton;
+    btn_6: TButton;
+    btn_7: TButton;
+    btn_8: TButton;
+    btn_9: TButton;
+    btn_dot: TButton;
+    btn_equal: TButton;
+    btn_times: TButton;
+    btn_minus: TButton;
+    btn_plus: TButton;
+    btn_slash: TButton;
+    box_buttons: TLayout;
+    boxheader: TLayout;
+    lb_operator: TLabel;
+    lb_number1: TLabel;
+    lb_number2: TLabel;
+    btn_delete: TButton;
+    procedure btn_minusClick(Sender: TObject);
+    procedure btn_plusClick(Sender: TObject);
+    procedure btn_timesClick(Sender: TObject);
+    procedure btn_slashClick(Sender: TObject);
+    procedure btn_equalClick(Sender: TObject);
+    procedure btn_1Click(Sender: TObject);
+    procedure btn_deleteClick(Sender: TObject);
+    procedure btn_2Click(Sender: TObject);
+    procedure btn_3Click(Sender: TObject);
+    procedure btn_4Click(Sender: TObject);
+    procedure btn_5Click(Sender: TObject);
+    procedure btn_6Click(Sender: TObject);
+    procedure btn_7Click(Sender: TObject);
+    procedure btn_8Click(Sender: TObject);
+    procedure btn_9Click(Sender: TObject);
+    procedure btn_0Click(Sender: TObject);
+    procedure btn_dotClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm1.btn_0Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '0';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '0';
+  end;
+end;
+
+procedure TForm1.btn_1Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '1';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '1';
+  end;
+end;
+
+procedure TForm1.btn_2Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '2';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '2';
+  end;
+end;
+
+procedure TForm1.btn_3Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '3';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '3';
+  end;
+end;
+
+procedure TForm1.btn_4Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '4';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '4';
+  end;
+end;
+
+procedure TForm1.btn_5Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '5';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '5';
+  end;
+end;
+
+procedure TForm1.btn_6Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '6';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '6';
+  end;
+end;
+
+procedure TForm1.btn_7Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '7';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '7';
+  end;
+end;
+
+procedure TForm1.btn_8Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '8';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '8';
+  end;
+end;
+
+procedure TForm1.btn_9Click(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '9';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '9';
+  end;
+end;
+
+procedure TForm1.btn_deleteClick(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := copy(lb_number1.Text, 0, length(lb_number1.Text)-1);
+  end
+  else
+  begin
+    lb_number2.Text := copy(lb_number2.Text, 0, length(lb_number2.Text)-1);
+  end;
+end;
+
+procedure TForm1.btn_dotClick(Sender: TObject);
+begin
+  if(lb_operator.Text = '.') then
+  begin
+    lb_number1.Text := lb_number1.Text + '.';
+  end
+  else
+  begin
+    lb_number2.Text := lb_number2.Text + '.';
+  end;
+end;
+
+procedure TForm1.btn_equalClick(Sender: TObject);
+  var number1, number2: double;
+  var x: char;
+
+begin
+  number1 := strToFloat(lb_number1.Text);
+  number2 := strToFloat(lb_number2.Text);
+
+  x := lb_operator.Text[1];
+  case x of
+    '+': begin
+      showMessage(floatToStr(number1 + number2));
+    end;
+
+    '-': begin
+      showMessage(floatToStr(number1 - number2));
+    end;
+
+    '*': begin
+      showMessage(floatToStr(number1 * number2));
+    end;
+
+    '/': begin
+      showMessage(floatToStr(number1 / number2));
+    end;
+
+    else
+      showMessage('Selecione uma operação');
+  end;
+
+  lb_operator.Text := '.';
+  lb_number1.Text := '';
+  lb_number2.Text := '';
+
+end;
+
+procedure TForm1.btn_minusClick(Sender: TObject);
+begin
+  lb_operator.Text := '-';
+
+  btn_plus.Enabled := true;
+  btn_minus.Enabled := false;
+  btn_times.Enabled := true;
+  btn_slash.Enabled := true;
+end;
+
+procedure TForm1.btn_plusClick(Sender: TObject);
+begin
+  lb_operator.Text := '+';
+
+  btn_plus.Enabled := false;
+  btn_minus.Enabled := true;
+  btn_times.Enabled := true;
+  btn_slash.Enabled := true;
+
+end;
+
+procedure TForm1.btn_slashClick(Sender: TObject);
+begin
+  lb_operator.Text := '/';
+
+  btn_plus.Enabled := true;
+  btn_minus.Enabled := true;
+  btn_times.Enabled := true;
+  btn_slash.Enabled := false;
+end;
+
+procedure TForm1.btn_timesClick(Sender: TObject);
+begin
+  lb_operator.Text := '*';
+
+  btn_plus.Enabled := true;
+  btn_minus.Enabled := true;
+  btn_times.Enabled := false;
+  btn_slash.Enabled := true;
+
+end;
+
+end.
